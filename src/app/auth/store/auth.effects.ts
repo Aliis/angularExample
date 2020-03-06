@@ -43,7 +43,7 @@ export class AuthEffects {
         ofType(AuthActions.LOGIN_START),
         switchMap((authData: AuthActions.LoginStart) => {
             return this.http.post<AuthResponseData>(
-                'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyD0y22S4AbDfEZT7emFfNC2xfjdDrOPbPg', {
+                'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=', {
                 email: authData.payload.email,
                 password: authData.payload.password,
                 returnSecureToken: true
@@ -66,7 +66,7 @@ export class AuthEffects {
         ofType(AuthActions.SIGNUP_START),
         switchMap((signupAction: AuthActions.SignupStart) => {
             return this.http.post<AuthResponseData>(
-                'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyD0y22S4AbDfEZT7emFfNC2xfjdDrOPbPg', {
+                'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=', {
                 email: signupAction.payload.email,
                 password: signupAction.payload.password,
                 returnSecureToken: true
